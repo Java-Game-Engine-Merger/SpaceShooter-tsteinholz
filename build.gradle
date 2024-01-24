@@ -40,6 +40,8 @@ allprojects {
 project(":desktop") {
   apply plugin: "java"
   apply plugin: "java-library"
+  sourceCompatibility = "17"
+  targetCompatibility = "17"
 
 
   dependencies {
@@ -59,6 +61,8 @@ project(":desktop") {
 project(":core") {
   apply plugin: "java"
   apply plugin: "java-library"
+  sourceCompatibility = "17"
+  targetCompatibility = "17"
 
 
   dependencies {
