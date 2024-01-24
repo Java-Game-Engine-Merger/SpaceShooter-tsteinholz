@@ -1,74 +1,76 @@
 buildscript {
-    repositories {
-        mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-    }
-    dependencies {
-    }
+  repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+  }
+  dependencies {
+  }
 }
 
 allprojects {
-    apply plugin: "eclipse"
-    apply plugin: "idea"
-    apply plugin: "java"
+  apply plugin: "eclipse"
+  apply plugin: "idea"
+//    apply plugin: "java"
 
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
+//    sourceCompatibility = '17'
+//    targetCompatibility = '17'
 
-    version = '1.0'
-    ext {
-        appName = 'SpaceShooter'
-        gdxVersion = '1.5.5'
-        roboVMVersion = '1.0.0'
-        box2DLightsVersion = '1.3'
-        ashleyVersion = '1.3.1'
-        aiVersion = '1.5.0'
-    }
+  version = '1.0'
+  ext {
+    appName = 'SpaceShooter'
+    gdxVersion = '1.11.0'
+    roboVMVersion = '1.0.0'
+    box2DLightsVersion = '1.3'
+    ashleyVersion = '1.7.4'
+    aiVersion = '1.8.0'
+  }
 
-    repositories {
-        mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
-    }
+  repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+  }
 }
 
 project(":desktop") {
-    apply plugin: "java"
+  apply plugin: "java"
+  apply plugin: "java-library"
 
 
-    dependencies {
-        compile project(":core")
-        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-        compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-        compile "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-desktop"
-        compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
-        compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
-        compile "com.beust:jcommander:1.48"
-    }
+  dependencies {
+    api project(":core")
+    api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
+    api "com.beust:jcommander:1.48"
+  }
 }
 
 project(":core") {
-    apply plugin: "java"
+  apply plugin: "java"
+  apply plugin: "java-library"
 
 
-    dependencies {
-        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-bullet:$gdxVersion"
-        compile "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
-        compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-        compile "com.badlogicgames.ashley:ashley:$ashleyVersion"
-        compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-        compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
-        compile "com.underwaterapps.overlap2druntime:overlap2d-runtime-libgdx:0.0.8"
-        compile "com.kotcrab.vis:vis-ui:0.6.1"
-        compile "com.beust:jcommander:1.48"
-    }
+  dependencies {
+    api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-bullet:$gdxVersion"
+    api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
+    api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+    api "com.badlogicgames.ashley:ashley:$ashleyVersion"
+    api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+    api "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
+    api "com.underwaterapps.overlap2druntime:overlap2d-runtime-libgdx:0.0.8"
+    api "com.kotcrab.vis:vis-ui:0.6.1"
+    api "com.beust:jcommander:1.48"
+  }
 }
 
 tasks.eclipse.doLast {
-    delete ".project"
+  delete ".project"
 }
