@@ -22,12 +22,13 @@ package com.laststandstudio.space;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.laststandstudio.space.engine.Utils.Logger;
-import com.laststandstudio.space.engine.Utils.MusicManager;
 import com.laststandstudio.space.Addons.SpaceShooterAddon;
 import com.laststandstudio.space.Levels.SplashScreen;
+import com.laststandstudio.space.engine.Utils.Logger;
+import com.laststandstudio.space.engine.Utils.MusicManager;
 
 import java.util.List;
 
@@ -95,7 +96,7 @@ public class SpaceShooter extends Game {
 
     private void setCursor(String fileLoc) {
         Pixmap cursor = new Pixmap(Gdx.files.internal(fileLoc));
-        Gdx.input.setCursorImage(cursor, 0, 0);
+        Gdx.graphics.setCursor(Gdx.graphics.newCursor(cursor, 0, 0));
         cursor.dispose();
     }
 }

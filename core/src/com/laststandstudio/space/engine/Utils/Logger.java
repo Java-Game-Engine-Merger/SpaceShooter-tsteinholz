@@ -21,7 +21,6 @@
 package com.laststandstudio.space.engine.Utils;
 
 import com.laststandstudio.space.SpaceShooter;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -265,7 +264,7 @@ public class Logger {
      * @implNote Not Implemented Yet
      */
     public boolean saveLog() {
-        throw new NotImplementedException();
+        throw new RuntimeException("Not impl-ed");
     }
 
     /**

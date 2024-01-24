@@ -53,8 +53,6 @@ project(":desktop") {
     api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
     api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
     api "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$controllerVersion"
-//    api "com.badlogicgames.gdx:gdx-controllers-platform:$controllerVersion:natives-desktop"
-    api "com.beust:jcommander:1.48"
   }
 }
 
@@ -77,6 +75,20 @@ project(":core") {
     api "com.underwaterapps.overlap2druntime:overlap2d-runtime-libgdx:0.0.8"
     api "com.kotcrab.vis:vis-ui:0.6.1"
     api "com.beust:jcommander:1.48"
+  }
+}
+
+project(":launcher") {
+  apply plugin: "java"
+  apply plugin: "java-library"
+  sourceCompatibility = "17"
+  targetCompatibility = "17"
+
+  dependencies {
+    api 'org.openjfx:javafx-base:21.0.2'
+    api 'org.openjfx:javafx-graphics:21.0.2'
+    api 'org.openjfx:javafx-swing:21.0.2'
+    api "org.openjfx:javafx-controls:21.0.2"
   }
 }
 
